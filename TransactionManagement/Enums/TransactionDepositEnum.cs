@@ -1,8 +1,7 @@
 namespace TransactionManagment.Enums;
 
-public enum TransactionTypeEnum
+public enum TransactionDepositEnum
 {
     Deposit = 1,
     Withdraw = 2
-    
 }

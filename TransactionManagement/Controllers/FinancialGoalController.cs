@@ -9,7 +9,7 @@ namespace TransactionManagment.Controllers;
 
 public class FinancialGoalController : ControllerBase
 {
-    [HttpPost]
+    [HttpPost("{id}")]
     public IActionResult Register()
     {
         return Ok();
