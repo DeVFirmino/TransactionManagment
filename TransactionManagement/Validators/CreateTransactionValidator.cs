@@ -25,7 +25,7 @@ public class CreateTransactionValidator : AbstractValidator<CreateTransactionDto
             .GreaterThan(0)
             .Must(ValidAmountPrecision)
             .WithMessage("Precision must be 2");
-
+ 
     }
 
     //Validates the amount precision from the Dto model transaction,

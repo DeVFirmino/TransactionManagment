@@ -22,4 +22,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Interfaces\IFinancialRepository.cs" />
+    </ItemGroup>
+
 </Project>

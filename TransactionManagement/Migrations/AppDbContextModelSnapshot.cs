@@ -31,6 +31,10 @@ namespace TransactionManagment.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("CurrentBalance")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<Guid>("FinancialGoalsId")
                         .HasColumnType("uniqueidentifier");
 
@@ -38,6 +42,7 @@ namespace TransactionManagment.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("TargetQuantity")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
@@ -65,6 +70,7 @@ namespace TransactionManagment.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Quantity")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("TransactionDate")

@@ -21,6 +21,18 @@ public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
         modelBuilder.Entity<TransactionModel>()
             .HasOne(p => p.GoalModel).WithMany(e => e.Transactions).HasForeignKey(t => t.FinancialGoalsId);
 
+        modelBuilder.Entity<GoalModel>().Property(g => g.CurrentBalance).HasPrecision(18, 2);
+        
+        
+        modelBuilder.Entity<GoalModel>()
+            .Property(g => g.TargetQuantity)
+            .HasPrecision(18, 2);
+
+        // Para o TransactionModel
+        modelBuilder.Entity<TransactionModel>()
+            .Property(t => t.Quantity)
+            .HasPrecision(18, 2);
+
 
     }
 }

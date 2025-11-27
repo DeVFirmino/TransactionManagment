@@ -18,5 +18,7 @@ public class GoalModel
     public DateTime CreationDate { get; set; }
 
     public bool IsDeleted { get; set; }
+
+    public decimal CurrentBalance { get; set; }
     
 }

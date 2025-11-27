@@ -1,3 +1,5 @@
+using TransactionManagment.Enums;
+
 namespace TransactionManagment.Models;
 
 public class TransactionModel
@@ -14,5 +16,7 @@ public class TransactionModel
 
     public bool IsDeleted { get; set; }
     public GoalModel GoalModel { get; set; }
+
+    public TransactionDepositEnum Type { get; set; }
 }
  

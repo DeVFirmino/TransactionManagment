@@ -21,18 +21,47 @@ public class TransactionService : ITransactionService
 
     public async Task<TransactionModel> ProcessTransactionAsync(CreateTransactionDto request)
     {
-        try
-        {
+        
             var goal = await _repository.GetGoalWithTransactionsAsync(request.FinancialId);
+
+            if (goal == null)
+            {
+                throw new KeyNotFoundException("Id not found");
+            }
             
             if(request.DepositOrWithdraw == TransactionDepositEnum.Withdraw)
             {
                 if (goal.CurrentBalance < request.TargetAmount)
                 {
-                    throw new InvalidOperationException()
+                    throw new InvalidOperationException("Not enough funds to realise this function");
                 }
+
+                goal.CurrentBalance -= request.TargetAmount;
+
+            } //If passes I will add on the db
+
+            else
+            {
+                goal.CurrentBalance += request.TargetAmount;
             }
-        }
+
+            var transaction = new TransactionModel
+            {
+                Id = Guid.NewGuid(),
+                FinancialGoalsId = goal.Id,
+                Quantity = request.TargetAmount,
+                Type = request.DepositOrWithdraw,
+                CreationDate = DateTime.UtcNow,
+                IsDeleted = false
+
+            };
+
+            goal.Transactions.Add(transaction);
+            await _repository.SaveChangesAsync();
+
+            return transaction;
+
+
     }
 }
      
