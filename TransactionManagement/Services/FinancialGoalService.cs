@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.VisualBasic;
 using TransactionManagment.DTOs;
 using TransactionManagment.Interfaces;
@@ -90,18 +91,36 @@ public class FinancialGoalService : IFinancialGoalService
 
     public async Task<GoalSummaryDto> GetByIdAsync(Guid id)
     {
-        var getId = _repository.GetByIdAsync(id);
-        if (id == null)
+        var getId = await _repository.GetByIdAsync(id);
+        if (getId == null)
         {
-            throw new KeyNotFoundException("Id not found");
+            throw new KeyNotFoundException("Not found");
         }
 
-        r
+        var dto = new GoalSummaryDto
+        {
+            Id = getId.Id,
+            Title = getId.Title,
+            TargetAmount = getId.TargetQuantity, 
+            CurrentBalance = getId.CurrentBalance
+        };
 
-    } //refatorar essa merda 
+        return dto;
 
-    public Task DeleteAsync(Guid id)
+    }//refatorar essa merda im done 
+    //Quem desiste o caminho acaba ai .
+
+    public async Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var deleteId = await _repository.GetByIdAsync(id);
+        if (deleteId == null)
+        {
+            throw new KeyNotFoundException("Not found");
+        }
+
+        deleteId.IsDeleted = true;
+
+        await _repository.UpdateAsync(deleteId);
+        
     }
 }
