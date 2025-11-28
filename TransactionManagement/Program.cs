@@ -1,10 +1,15 @@
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using TransactionManagment.DbContext;
+using TransactionManagment.Interfaces;
+using TransactionManagment.Repository;
+using TransactionManagment.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IFinancialGoalRepository, FinancialGoalRepository>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
