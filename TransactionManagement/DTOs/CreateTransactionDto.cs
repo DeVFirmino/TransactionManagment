@@ -10,4 +10,4 @@ public class CreateTransactionDto
 
     public TransactionDepositEnum DepositOrWithdraw { get; set; }
     
-}
+} 

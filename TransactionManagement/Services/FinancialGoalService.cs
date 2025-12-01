@@ -64,7 +64,7 @@ public class FinancialGoalService : IFinancialGoalService
 
     }
 
-    public async Task<GoalSummaryDto> UpdateAsync(UpdateGoalInputDto request)
+    public async Task<GoalSummaryDto> UpdateAsync(UpdateGoalInputDto request, Guid id)
     {
         var updateGoal = await _repository.GetByIdAsync(request.Id);
         if (updateGoal == null)

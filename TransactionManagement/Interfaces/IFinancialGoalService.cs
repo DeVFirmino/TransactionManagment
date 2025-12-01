@@ -10,7 +10,7 @@ public interface IFinancialGoalService
 
     public Task<List<GoalSummaryDto>> GetAllGoalsAsync();
 
-    public Task<GoalSummaryDto> UpdateAsync(UpdateGoalInputDto request);
+    public Task<GoalSummaryDto> UpdateAsync(UpdateGoalInputDto request, Guid id);
 
     public Task<GoalSummaryDto> GetByIdAsync(Guid id);
 

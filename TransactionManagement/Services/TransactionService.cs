@@ -10,12 +10,12 @@ namespace TransactionManagment.Services;
 public class TransactionService : ITransactionService
 
 {
-    private readonly FinancialGoalRepository _repository; //To pass the db here i have to put as readonly and give the signature,
+    private readonly IFinancialGoalRepository _repository; //To pass the db here i have to put as readonly and give the signature,
                                             //then create the class name from the same name as the Class service, and put the parameter
                                             //from AppDbContext and give the signature then call the _context and tell that is context name.
-    public TransactionService(FinancialGoalRepository repository)
+    public TransactionService(IFinancialGoalRepository repository)
     {
-        repository = _repository;
+        _repository = repository;
     }
     
 
@@ -57,11 +57,13 @@ public class TransactionService : ITransactionService
             };
 
             goal.Transactions.Add(transaction);
+
             await _repository.SaveChangesAsync();
+            
 
             return transaction;
 
-
+//i can implement race condiditon on ef here
     }
 }
      

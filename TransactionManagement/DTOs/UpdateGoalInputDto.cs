@@ -10,4 +10,4 @@ public class UpdateGoalInputDto
 
     public decimal? IdealMonthlyContribution { get; set; }
 
-}
+}   
