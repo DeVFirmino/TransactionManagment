@@ -1,12 +1,12 @@
-💰 Financial Goal & Transaction Management API
+  Financial Goal & Transaction Management API
 
-📖 Project Overview
+  Project Overview
 
 A robust RESTful API built with .NET 9 designed to manage financial goals (similar to "Banking Sub-accounts") and process atomic monetary transactions.
 
 This project was developed with a focus on Financial Data Integrity, implementing strict patterns required in the Fintech and iGaming industries, such as Decimal Precision handling, Atomic Transactions, and Domain Validations.
 
-🚀 Key Features
+  Key Features
 
 Financial Goals Management: Create, Update, and Soft-Delete financial goals.
 
@@ -18,7 +18,7 @@ Data Integrity: Strict usage of decimal types for monetary calculations to avoid
 
 Audit Trail: Implementation of Soft Delete to preserve historical data.
 
-🏗️ Architecture & Patterns
+ Architecture & Patterns
 
 The solution follows clean coding principles and separates concerns into distinct layers:
 
@@ -32,7 +32,7 @@ Fluent Validation: Implements "Fail Fast" validations for incoming data (e.g., e
 
 Dependency Injection: Fully managed via ASP.NET Core DI container.
 
-🛠️ Tech Stack
+  Tech Stack
 
 Framework: ASP.NET Core Web API (.NET 9)
 
@@ -44,7 +44,7 @@ Validation: FluentValidation
 
 Documentation: Swagger UI / OpenAPI
 
-💡 Technical Highlights (iGaming Focus)
+  Technical Highlights (iGaming Focus)
 
 1. Financial Precision
 
